@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Te amo Venecia 💜🦕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(270deg, #ffb6b9, #fae3d9, #bbded6, #8ac6d1);
+      background-size: 800% 800%;
+      animation: gradientBG 16s ease infinite;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    @keyframes gradientBG {
+      0% {background-position:0% 50%}
+      50% {background-position:100% 50%}
+      100% {background-position:0% 50%}
+    }
+    .container {
+      background: rgba(255,255,255,0.85);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+      padding: 40px 30px 30px 30px;
+      text-align: center;
+      max-width: 400px;
+    }
+    .titulo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #7c3aed;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: #ff6f91;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 18px 40px 18px 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 14px 0 rgba(255,111,145,0.2);
+      transition: background 0.2s, transform 0.2s;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn:hover {
+      background: #ff3e6c;
+      transform: scale(1.05);
+    }
+    .dino-sticker {
+      width: 38px;
+      height: 38px;
+      vertical-align: middle;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+      object-fit: contain;
+    }
+    .mensaje {
+      font-size: 1.5rem;
+      color: #333;
+      margin-top: 20px;
+      min-height: 40px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="titulo">
+      Te amo Venecia 💜🦕
+    </div>
+    <button class="btn" id="btn">
+      <img src="https://previews.123rf.com/images/ladadikart/ladadikart2204/ladadikart220400256/184847765-icono-de-dibujos-animados-de-tiranosaurio-rex-lindo-beb%C3%A9-dinosaurio.jpg" alt="Dino" class="dino-sticker">
+      Presióname
+    </button>
+    <div class="mensaje" id="mensaje"></div>
+    <audio id="audio" src="https://button-love-you.vercel.app/love.mp3" loop></audio>
+  </div>
+  <script>
+    const mensajes = [
+      "Eres la razón por la que sonrío cada día.",
+      "Te quiero más de lo que las palabras pueden expresar.",
+      "Gracias por existir en mi vida.",
+      "Eres mi persona favorita en el mundo.",
+      "Contigo, todo es mejor.",
+      "Eres mi alegría diaria.",
+      "Siempre pienso en ti.",
+      "Eres mi sueño hecho realidad.",
+      "Te amo con todo mi corazón.",
+      "Eres lo más bonito que me ha pasado."
+    ];
+    const btn = document.getElementById('btn');
+    const mensaje = document.getElementById('mensaje');
+    const audio = document.getElementById('audio');
+    let started = false;
+
+    btn.addEventListener('click', () => {
+      const idx = Math.floor(Math.random() * mensajes.length);
+      mensaje.textContent = mensajes[idx];
+      if (!started) {
+        audio.play();
+        started = true;
+      }
+    });
+  </script>
+</body>
+</html>
